@@ -1,0 +1,6 @@
+C:\AlDev\twCode128Generator\bin\Debug\twCode128Generator.exe.config
+C:\AlDev\twCode128Generator\bin\Debug\twCode128Generator.exe
+C:\AlDev\twCode128Generator\bin\Debug\twCode128Generator.pdb
+C:\AlDev\twCode128Generator\obj\Debug\twCode128Generator.csprojResolveAssemblyReference.cache
+C:\AlDev\twCode128Generator\obj\Debug\twCode128Generator.exe
+C:\AlDev\twCode128Generator\obj\Debug\twCode128Generator.pdb
