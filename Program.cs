@@ -11,6 +11,8 @@ namespace twCode128Generator
     {
         private static int TestCount;
         private static int DiffCount;
+        private static Dictionary<char, string> UglyEncoder = new Dictionary<char, string>();
+
 
         static void Main(string[] args)
         {
@@ -635,6 +637,32 @@ namespace twCode128Generator
             Console.WriteLine("Total Test: " + TestCount.ToString());
             Console.WriteLine("Total diff: " + DiffCount.ToString());
 
+            GenUglyCsharp();
+
+        }
+        private static void DoTestItem(string barfldval, string barfldprn, string Code128IDAutomation)
+        {
+            DoTestItem_RunConv(barfldval, barfldprn, Code128IDAutomation);
+            //DoTestItem_Analyze(barfldval, barfldprn, Code128IDAutomation);
+        }
+
+        private static void GenUglyCsharp()
+        {
+            var sortedUglyEncoder = UglyEncoder.OrderBy(pair => pair.Key);
+            foreach (var entry in sortedUglyEncoder)
+            {
+                //Console.WriteLine(entry.Key + " " + ((int)entry.Key).ToString() + " " + entry.Value);
+                string csharpStr = "            UglyEncoder.Add((char)" + ((int)entry.Key).ToString() + ", \"" + GetEscaped(entry.Value) +  "\");  " + new string(' ',10 + ((int)entry.Key<100 ? 1 : 0) - GetEscaped(entry.Value).Length) + " /* " + entry.Key + " */" ;
+                Console.WriteLine(csharpStr);
+            }
+        }
+
+        private static string GetEscaped(string strIn)
+        {
+            string strOut = strIn;
+            strOut = strOut.Replace("\\", "\\\\");
+            strOut = strOut.Replace("\"", "\\\"");
+            return strOut;
         }
 
         private static void DoMultHeadings()
@@ -649,7 +677,38 @@ namespace twCode128Generator
             Console.WriteLine("----------------------------------------------------------------");
         }
 
-        private static void DoTestItem(string barfldval, string barfldprn, string Code128IDAutomation)
+        private static void DoTestItem_Analyze(string barfldval, string barfldprn, string Code128IDAutomation)
+        {
+            //Console.WriteLine();
+            var code128 = new Code128();
+            var myCode128String = code128.Encode(barfldval);
+            string uglyEndcoded = code128.UglyEncode(myCode128String);
+            for (int i = 0; i < myCode128String.Length; i++)
+            {
+                char c1 = myCode128String[i];
+                string cvt = barfldprn.Substring(i * 3, 3);
+                if (UglyEncoder.ContainsKey(c1))
+                {
+                    if (UglyEncoder[c1] == cvt)
+                    {
+                        //Console.WriteLine("Already exists: " + c1);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Collision! :" + c1);
+                    }
+
+                }
+                else
+                {
+                    Console.WriteLine("Adding: " + c1 + " " + ((int)c1).ToString() + " " + cvt);
+                    UglyEncoder[c1] = cvt;
+                }
+            }
+
+        }
+
+        private static void DoTestItem_RunConv(string barfldval, string barfldprn, string Code128IDAutomation)
         {
             //Console.WriteLine();
             var code128 = new Code128();

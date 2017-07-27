@@ -224,6 +224,118 @@ namespace twCode128Generator
         private void UglyEncoderLoad()
         {
             UglyEncoder = new Dictionary<char, string>();
+
+            UglyEncoder.Add((char)32, "%&&");           /*   */
+            UglyEncoder.Add((char)33, "&%&");           /* ! */
+            UglyEncoder.Add((char)34, "&&%");           /* " */
+            UglyEncoder.Add((char)35, "\"\"'");         /* # */
+            UglyEncoder.Add((char)36, "\"#&");          /* $ */
+            UglyEncoder.Add((char)37, "#\"&");          /* % */
+            UglyEncoder.Add((char)38, "\"&#");          /* & */
+            UglyEncoder.Add((char)39, "\"'\"");         /* ' */
+            UglyEncoder.Add((char)40, "#&\"");          /* ( */
+            UglyEncoder.Add((char)41, "&\"#");          /* ) */
+            UglyEncoder.Add((char)42, "&#\"");          /* * */
+            UglyEncoder.Add((char)43, "'\"\"");         /* + */
+            UglyEncoder.Add((char)44, "!&*");           /* , */
+            UglyEncoder.Add((char)45, "\"%*");          /* - */
+            UglyEncoder.Add((char)46, "\"&)");          /* . */
+            UglyEncoder.Add((char)47, "!*&");           /* / */
+            UglyEncoder.Add((char)48, "\")&");          /* 0 */
+            UglyEncoder.Add((char)49, "\"*%");          /* 1 */
+            UglyEncoder.Add((char)50, "&*!");           /* 2 */
+            UglyEncoder.Add((char)51, "&!*");           /* 3 */
+            UglyEncoder.Add((char)52, "&\")");          /* 4 */
+            UglyEncoder.Add((char)53, "%*\"");          /* 5 */
+            UglyEncoder.Add((char)54, "&)\"");          /* 6 */
+            UglyEncoder.Add((char)55, ")%)");           /* 7 */
+            UglyEncoder.Add((char)56, ")\"&");          /* 8 */
+            UglyEncoder.Add((char)57, "*!&");           /* 9 */
+            UglyEncoder.Add((char)58, "*\"%");          /* : */
+            UglyEncoder.Add((char)59, ")&\"");          /* ; */
+            UglyEncoder.Add((char)60, "*%\"");          /* < */
+            UglyEncoder.Add((char)61, "*&!");           /* = */
+            UglyEncoder.Add((char)62, "%%'");           /* > */
+            UglyEncoder.Add((char)63, "%'%");           /* ? */
+            UglyEncoder.Add((char)64, "'%%");           /* @ */
+            UglyEncoder.Add((char)65, "!#'");           /* A */
+            UglyEncoder.Add((char)66, "#!'");           /* B */
+            UglyEncoder.Add((char)67, "##%");           /* C */
+            UglyEncoder.Add((char)68, "!'#");           /* D */
+            UglyEncoder.Add((char)69, "#%#");           /* E */
+            UglyEncoder.Add((char)70, "#'!");           /* F */
+            UglyEncoder.Add((char)71, "%##");           /* G */
+            UglyEncoder.Add((char)72, "'!#");           /* H */
+            UglyEncoder.Add((char)73, "'#!");           /* I */
+            UglyEncoder.Add((char)74, "!%+");           /* J */
+            UglyEncoder.Add((char)75, "!')");           /* K */
+            UglyEncoder.Add((char)76, "#%)");           /* L */
+            UglyEncoder.Add((char)77, "!)'");           /* M */
+            UglyEncoder.Add((char)78, "!+%");           /* N */
+            UglyEncoder.Add((char)79, "#)%");           /* O */
+            UglyEncoder.Add((char)80, "))%");           /* P */
+            UglyEncoder.Add((char)81, "%#)");           /* Q */
+            UglyEncoder.Add((char)82, "'!)");           /* R */
+            UglyEncoder.Add((char)83, "%)#");           /* S */
+            UglyEncoder.Add((char)84, "%+!");           /* T */
+            UglyEncoder.Add((char)85, "%))");           /* U */
+            UglyEncoder.Add((char)86, ")!'");           /* V */
+            UglyEncoder.Add((char)87, ")#%");           /* W */
+            UglyEncoder.Add((char)88, "+!%");           /* X */
+            UglyEncoder.Add((char)89, ")%#");           /* Y */
+            UglyEncoder.Add((char)90, ")'!");           /* Z */
+            UglyEncoder.Add((char)91, "+%!");           /* [ */
+            UglyEncoder.Add((char)92, ")-!");           /* \ */
+            UglyEncoder.Add((char)93, "&$!");           /* ] */
+            UglyEncoder.Add((char)94, "/!!");           /* ^ */
+            UglyEncoder.Add((char)95, "!\"(");          /* _ */
+            UglyEncoder.Add((char)96, "!$&");           /* ` */
+            UglyEncoder.Add((char)97, "\"!(");          /* a */
+            UglyEncoder.Add((char)98, "\"$%");          /* b */
+            UglyEncoder.Add((char)99, "$!&");           /* c */
+            UglyEncoder.Add((char)100, "$\"%");         /* d */
+            UglyEncoder.Add((char)101, "!&$");          /* e */
+            UglyEncoder.Add((char)102, "!(\"");         /* f */
+            UglyEncoder.Add((char)103, "\"%$");         /* g */
+            UglyEncoder.Add((char)104, "\"(!");         /* h */
+            UglyEncoder.Add((char)105, "$%\"");         /* i */
+            UglyEncoder.Add((char)106, "$&!");          /* j */
+            UglyEncoder.Add((char)107, "(\"!");         /* k */
+            UglyEncoder.Add((char)108, "&!$");          /* l */
+            UglyEncoder.Add((char)109, "-)!");          /* m */
+            UglyEncoder.Add((char)110, "(!\"");         /* n */
+            UglyEncoder.Add((char)111, "#-!");          /* o */
+            UglyEncoder.Add((char)112, "!\".");         /* p */
+            UglyEncoder.Add((char)113, "\"!.");         /* q */
+            UglyEncoder.Add((char)114, "\"\"-");        /* r */
+            UglyEncoder.Add((char)115, "!.\"");         /* s */
+            UglyEncoder.Add((char)116, "\"-\"");        /* t */
+            UglyEncoder.Add((char)117, "\".!");         /* u */
+            UglyEncoder.Add((char)118, "-\"\"");        /* v */
+            UglyEncoder.Add((char)119, ".!\"");         /* w */
+            UglyEncoder.Add((char)120, ".\"!");         /* x */
+            UglyEncoder.Add((char)121, "%%-");          /* y */
+            UglyEncoder.Add((char)122, "%-%");          /* z */
+            UglyEncoder.Add((char)123, "-%%");          /* { */
+            UglyEncoder.Add((char)124, "!!/");          /* | */
+            UglyEncoder.Add((char)125, "!#-");          /* } */
+            UglyEncoder.Add((char)126, "#!-");          /* ~ */
+            UglyEncoder.Add((char)195, "!-#");          /* A */
+            UglyEncoder.Add((char)196, "!/!");          /* Ä */
+            UglyEncoder.Add((char)197, "-!#");          /* Å */
+            UglyEncoder.Add((char)198, "-#!");          /* Æ */
+            UglyEncoder.Add((char)199, "!)-");          /* Ç */
+            UglyEncoder.Add((char)200, "!-)");          /* E */
+            UglyEncoder.Add((char)201, ")!-");          /* É */
+            UglyEncoder.Add((char)202, "-!)");          /* E */
+            UglyEncoder.Add((char)204, "%\"$");         /* I */
+            UglyEncoder.Add((char)206, "')!");          /* I */
+
+        }
+
+        private void UglyEncoderLoad_OLD()
+        {
+            UglyEncoder = new Dictionary<char, string>();
             //UglyEncoder.Add(' ', "___");
             //UglyEncoder.Add(' ', "___");
             //UglyEncoder.Add(' ', "___");
